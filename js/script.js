@@ -75,10 +75,10 @@ let quotes = [
 function getRandomQuote () {
   let randomNumber = Math.floor(Math.random()*quotes.length);
   return quotes [randomNumber];
-}
+};
 
 
-
+console.log(getRandomQuote);
 
 /***
   Create the `printQuote` function to: 
@@ -96,21 +96,22 @@ function getRandomQuote () {
 function printQuote () {
     let randomQuote = getRandomQuote ();
     let htmlString = '';
-    htmlString +='<p class = "quote">' + randomQuote.quote + '</p>';
-    htmlString +='<p class = "source">' + randomQuote.source;
+    htmlString += '<p class= "quote">' + randomQuote.quote + '</p>';
+    htmlString += '<p class= "source">' + randomQuote.source;
   
 
     if (randomQuote.citation) {
-      htmlString += '<span class = "citation">' + randomQuote.citation + '</span>';
+      htmlString += '<span class= "citation">' + randomQuote.citation + '</span>';
     }
-    if (randomQuote.Year) {
-      htmlString += '<span class = "year">' + randomQuote.year + '</span>';
+    if (randomQuote.year) {
+      htmlString += '<span class= "year">' + randomQuote.year + '</span>';
     }
     htmlString += "</p>";
-    document.getElementById ("quote-box").innerHtml = htmlString;
+    document.getElementById ("quote-box").innerHTML = htmlString;
 }
 
 printQuote ();
+
 /***
   When the "Show another quote" button is clicked, the event listener 
   below will be triggered, and it will call, or "invoke", the `printQuote` 
@@ -118,7 +119,7 @@ printQuote ();
   comment.
 ***/
 
-//document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 
 
