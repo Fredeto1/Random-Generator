@@ -72,17 +72,13 @@ let quotes = [
   }
 ];
 
-/***
-  Create the `getRandomQuote` function to:
-   - Create a variable to store a random number 
-   - Cse the random number to `return` a random quote object from the `quotes` array.
-***/
-
 function getRandomQuote () {
   let randomNumber = Math.floor(Math.random()*quotes.length);
   return quotes [randomNumber];
 }
-console.log(getRandomQuote());
+
+
+
 
 /***
   Create the `printQuote` function to: 
@@ -97,9 +93,24 @@ console.log(getRandomQuote());
    - Set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
 
+function printQuote () {
+    let randomQuote = getRandomQuote ();
+    let htmlString = '';
+    htmlString +='<p class = "quote">' + randomQuote.quote + '</p>';
+    htmlString +='<p class = "source">' + randomQuote.source;
+  
 
+    if (randomQuote.citation) {
+      htmlString += '<span class = "citation">' + randomQuote.citation + '</span>';
+    }
+    if (randomQuote.Year) {
+      htmlString += '<span class = "year">' + randomQuote.year + '</span>';
+    }
+    htmlString += "</p>";
+    document.getElementById ("quote-box").innerHtml = htmlString;
+}
 
-
+printQuote ();
 /***
   When the "Show another quote" button is clicked, the event listener 
   below will be triggered, and it will call, or "invoke", the `printQuote` 
@@ -108,6 +119,7 @@ console.log(getRandomQuote());
 ***/
 
 //document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
