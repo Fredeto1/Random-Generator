@@ -13,7 +13,8 @@ let quotes = [
   },
   {
     quote: 'Every champion was once a contender who refused to give up.',
-    source: 'Sylvester Stallone'
+    source: 'Sylvester Stallone ',
+    tags: 'Inspirational'
   },
   {
     quote: 'If this is something you wanna do, and if this is something you gotta do, then you do it. Fighters fight.',
@@ -27,7 +28,8 @@ let quotes = [
   },
   {
     quote: 'We\'re all stories in the end. Just make it a good one, eh?',
-    source: 'The Doctor',
+    source: 'The Doctor ',
+    tags: 'Moving'
   },
   {
     quote: 'Some people live more in twenty years than others do in eighty. It\'s not the time that matters, it\'s the person.',
@@ -72,12 +74,18 @@ function printQuote() {
   if (randomQuote.year) {
     htmlString += '<span class= "year">' + randomQuote.year + '</span>';
   }
-  htmlString += "</p>";
+  //The following condtional statment checks for the tags property and if present add it to the string
+if (randomQuote.tags) {
+  htmlString += '<span class= "tags">' + randomQuote.tags + '</span>';
+}
+htmlString += "</p>";
 
 //The following method loads the string to the HTML page.
   document.getElementById("quote-box").innerHTML = htmlString;
 }
 printQuote();
+
+
 
 /***
   When the "Show another quote" button is clicked, the event listener 
