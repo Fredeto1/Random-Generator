@@ -67,7 +67,7 @@ function printQuote() {
   htmlString += '<p class= "quote">' + randomQuote.quote + '</p>';
   htmlString += '<p class= "source">' + randomQuote.source;
 
-//The following condtional statment checks for the citation and year properties and if present adds them to the string
+  //The following condtional statments checks for the citation and year properties and if present adds them to the string
   if (randomQuote.citation) {
     htmlString += '<span class= "citation">' + randomQuote.citation + '</span>';
   }
@@ -75,16 +75,19 @@ function printQuote() {
     htmlString += '<span class= "year">' + randomQuote.year + '</span>';
   }
   //The following condtional statment checks for the tags property and if present add it to the string
-if (randomQuote.tags) {
-  htmlString += '<span class= "tags">' + randomQuote.tags + '</span>';
-}
-htmlString += "</p>";
+  if (randomQuote.tags) {
+    htmlString += '<span class= "tags">' + randomQuote.tags + '</span>';
+  }
+  htmlString += "</p>";
 
-//The following method loads the string to the HTML page.
+
+  //The following method loads the string to the HTML page.
   document.getElementById("quote-box").innerHTML = htmlString;
 }
 printQuote();
 
+//The following function auto refreshes the page
+setInterval (printQuote, 15000);
 
 
 /***
