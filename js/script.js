@@ -74,7 +74,7 @@ function printQuote() {
   }
   htmlString += "</p>";
 
-//The following method loads the string to the HTML page
+//The following method loads the string to the HTML page.
   document.getElementById("quote-box").innerHTML = htmlString;
 }
 printQuote();
