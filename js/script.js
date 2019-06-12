@@ -2,55 +2,55 @@
 let quotes = [
   {
     quote: 'But it ain\'t about how hard you hit. It\s about how hard you can get hit and keep moving forward; how much ' +
-      'you can take and keep moving forward. That\'s how winning is done!',
-    source: 'Rocky Ballboa',
+      'you can take and keep moving forward. That\'s how winning is done! ',
+    source: 'Rocky Ballboa ',
   },
   {
-    quote: 'Going in one more round when you don’t think you can. That’s what makes all the difference in your life.',
-    source: 'Rocky',
-    citation: 'Rocky IV',
-    year: '1985'
+    quote: 'Going in one more round when you don’t think you can. That’s what makes all the difference in your life. ',
+    source: 'Rocky ',
+    citation: 'Rocky IV ',
+    year: '1985 '
   },
   {
-    quote: 'Every champion was once a contender who refused to give up.',
-    source: 'Sylvester Stallone ',
-    tags: 'Inspirational'
+    quote: 'Every champion was once a contender who refused to give up. ',
+    source: 'Sylvester Stallone, ',
+    tags: 'Inspirational '
   },
   {
-    quote: 'If this is something you wanna do, and if this is something you gotta do, then you do it. Fighters fight.',
-    source: 'Sylvester Stallone as Rocky Ballboa',
-    citation: 'Rocky Ballboa',
-    year: '2006'
+    quote: 'If this is something you wanna do, and if this is something you gotta do, then you do it. Fighters fight. ',
+    source: 'Sylvester Stallone as Rocky Ballboa ',
+    citation: 'Rocky Ballboa ',
+    year: '2006 '
   },
   {
-    quote: 'Never cruel or cowardly. Never give up, never give in.',
-    source: 'The Doctor',
-  },
-  {
-    quote: 'We\'re all stories in the end. Just make it a good one, eh?',
+    quote: 'Never cruel or cowardly. Never give up, never give in. ',
     source: 'The Doctor ',
-    tags: 'Moving'
   },
   {
-    quote: 'Some people live more in twenty years than others do in eighty. It\'s not the time that matters, it\'s the person.',
-    source: 'The Doctor',
+    quote: 'We\'re all stories in the end. Just make it a good one, eh? ',
+    source: 'The Doctor, ',
+    tags: 'Moving '
   },
   {
-    quote: 'Logic is the beginning, not the end, of wisdom.',
-    source: 'Spock',
-    citation: 'Star Trek IV',
-    year: '1991'
+    quote: 'Some people live more in twenty years than others do in eighty. It\'s not the time that matters, it\'s the person. ',
+    source: 'The Doctor ',
+  },
+  {
+    quote: 'Logic is the beginning, not the end, of wisdom. ',
+    source: 'Spock ',
+    citation: 'Star Trek IV ',
+    year: '1991 '
   },
   {
     quote: 'Our species can only survive if we have obstacles to overcome. You remove those obstacles. Without them to strengthen us,' +
-      'we will weaken and die.',
-    source: 'Captain Kirk'
+      'we will weaken and die. ',
+    source: 'Captain Kirk '
   },
   {
-    quote: 'Do. Or do not. There is no try.',
-    source: 'Yoda',
-    citation: 'The Empire Strikes Back',
-    year: '1980'
+    quote: 'Do. Or do not. There is no try. ',
+    source: 'Yoda ',
+    citation: 'The Empire Strikes Back ',
+    year: '1980 '
   }
 ];
 
@@ -67,28 +67,39 @@ function printQuote() {
   htmlString += '<p class= "quote">' + randomQuote.quote + '</p>';
   htmlString += '<p class= "source">' + randomQuote.source;
 
-  //The following condtional statments checks for the citation and year properties and if present adds them to the string
+  //The following condtional statments checks for the citation and year properties and if present adds them to the string.
   if (randomQuote.citation) {
     htmlString += '<span class= "citation">' + randomQuote.citation + '</span>';
   }
   if (randomQuote.year) {
     htmlString += '<span class= "year">' + randomQuote.year + '</span>';
   }
-  //The following condtional statment checks for the tags property and if present add it to the string
+  //The following condtional statment checks for the tags property and if present add it to the string.
   if (randomQuote.tags) {
     htmlString += '<span class= "tags">' + randomQuote.tags + '</span>';
   }
   htmlString += "</p>";
 
-
   //The following method loads the string to the HTML page.
   document.getElementById("quote-box").innerHTML = htmlString;
+
+getRandomColor();
 }
 printQuote();
 
-//The following function auto refreshes the page
-setInterval (printQuote, 15000);
+//The following function auto refreshes the page.
+setInterval(printQuote, 20000);
 
+//The following function changes the background color to a randomly selected one.
+function getRandomColor() {
+  let a = Math.floor(Math.random() * 215);
+  let b = Math.floor(Math.random() * 215);
+  let c = Math.floor(Math.random() * 215);
+  let color = "rgb(" + a + "," + b + "," + c + ")";
+
+
+  document.body.style.background = color;
+  }
 
 /***
   When the "Show another quote" button is clicked, the event listener 
